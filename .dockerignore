@@ -1,0 +1,6 @@
+firebaseServiceAccountKey.json
+*.log
+.env
+.git
+.gitignore
+node_modules
