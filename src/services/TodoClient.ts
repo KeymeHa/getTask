@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { Task } from '../interfaces/Task';
 
-const FIREBASE_URL = 'https://tu-proyecto.firebaseio.com/tasks';
+
+//Este valor debe ser cambiado para la conexión con firebase
+const FIREBASE_URL = 'https://parcial.com/tasks';
 
 export class TodoClient {
   static async getTasks(): Promise<Task[]> {

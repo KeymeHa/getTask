@@ -1,10 +1,13 @@
 import express from 'express';
-import tasksRouter from './routes/tasks';
-import { swaggerUi, swaggerSpec } from './config/swagger';
+import tasksRouter from './src/routes/tasks';
+import { swaggerUi, swaggerSpec } from './src/config/swagger';
+import cors from 'cors';
 
 
 const app = express();
 const PORT = 3000;
+
+app.use(cors());
 
 app.use(express.json());
 app.use('/api/tasks', tasksRouter);
@@ -15,7 +18,6 @@ app.get('/', (req, res) => {
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor en http://localhost:${PORT}`);
-  console.log(`Documentación Swagger disponible en http://localhost:${PORT}/api-docs`);
 });

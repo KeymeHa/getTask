@@ -1,10 +1,7 @@
-
 FROM node:20.16.0-alpine
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
 COPY . .
-COPY src/config/firebase.json ./src/config/firebase.json
-
+RUN npm install
+RUN npm run build
 EXPOSE 3000
-CMD ["node", "index.js"]
+CMD ["npm","run", "start"]
